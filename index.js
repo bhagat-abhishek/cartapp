@@ -3,6 +3,7 @@ import {
   getDatabase,
   ref,
   push,
+  onValue,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const appSettings = {
@@ -26,6 +27,12 @@ addButtonEl.addEventListener("click", function () {
   clearInputFieldEl();
 
   appendToShoppingListInDb(inputValue);
+});
+
+onValue(shoppingListInDb, function (snapshot) {
+  let ItemsArray = Object.values(snapshot.val())
+
+  console.log(ItemsArray)
 });
 
 function clearInputFieldEl() {
