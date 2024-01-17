@@ -34,11 +34,8 @@ onValue(shoppingListInDb, function (snapshot) {
 
   for (let i = 0; i < ItemsArray.length; i++) {
     let currentItem = ItemsArray[i];
-    
-    let currentItemId = currentItem[0];
-    let currentItemValue = currentItem[1];
 
-    appendToShoppingListInDb(currentItemValue);
+    appendToShoppingListInDb(currentItem);
   }
 });
 
@@ -50,6 +47,11 @@ function clearShoppingListEl() {
   shoppingListEl.innerHTML = null;
 }
 
-function appendToShoppingListInDb(itemValue) {
-  shoppingListEl.innerHTML += `<li>${itemValue}</li>`;
+function appendToShoppingListInDb(item) {
+  let itemId = item[0];
+  let itemValue = item[1];
+
+  let newEl = document.createElement("li");
+  newEl.textContent = itemValue;
+  shoppingListEl.append(newEl);
 }
