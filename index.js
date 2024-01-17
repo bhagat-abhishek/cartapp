@@ -8,8 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const appSettings = {
-  databaseURL:
-    "https://addtocart-dbba0-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL: "YOUR FIREBASE DB URL",
 };
 
 const app = initializeApp(appSettings);
