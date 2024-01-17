@@ -1,6 +1,6 @@
 # Basic application with HTML|CSS|JS with Firebase.
 
-## This application lets you add something to a list and remove it. You can make use of this as a to do list, a shopping list, or anything you like.
+### This application lets you add something to a list and remove it. You can make use of this as a to do list, a shopping list, or anything you like.
 
 
 ### Usages
