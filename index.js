@@ -29,14 +29,18 @@ addButtonEl.addEventListener("click", function () {
 });
 
 onValue(shoppingListInDb, function (snapshot) {
-  let ItemsArray = Object.entries(snapshot.val());
+  if (snapshot.exists()) {
+    let ItemsArray = Object.entries(snapshot.val());
 
-  clearShoppingListEl();
+    clearShoppingListEl();
 
-  for (let i = 0; i < ItemsArray.length; i++) {
-    let currentItem = ItemsArray[i];
+    for (let i = 0; i < ItemsArray.length; i++) {
+      let currentItem = ItemsArray[i];
 
-    appendToShoppingListInDb(currentItem);
+      appendToShoppingListInDb(currentItem);
+    }
+  } else {
+    shoppingListEl.innerHTML = "No, Items exits yet..";
   }
 });
 
