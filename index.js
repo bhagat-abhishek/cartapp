@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getDatabase,
   ref,
@@ -16,11 +16,22 @@ const shoppingListInDb = ref(database, "shoppingList");
 
 const inputFieldEl = document.getElementById("input-field");
 const addButtonEl = document.getElementById("add-button");
+const shoppingListEl = document.getElementById("shopping-list");
 
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
 
   push(shoppingListInDb, inputValue);
 
-  console.log(inputValue);
+  clearInputFieldEl();
+
+  appendToShoppingListInDb(inputValue);
 });
+
+function clearInputFieldEl() {
+  inputFieldEl.value = null;
+}
+
+function appendToShoppingListInDb(itemValue) {
+  shoppingListEl.innerHTML += `<li>${itemValue}</li>`;
+}
