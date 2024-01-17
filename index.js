@@ -4,6 +4,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const appSettings = {
@@ -53,5 +54,11 @@ function appendToShoppingListInDb(item) {
 
   let newEl = document.createElement("li");
   newEl.textContent = itemValue;
+
+  newEl.addEventListener("dblclick", function () {
+    let exactLocationOfItemInDb = ref(database, `shoppingList/${itemId}`);
+    remove(exactLocationOfItemInDb);
+  });
+
   shoppingListEl.append(newEl);
 }
